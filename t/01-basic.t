@@ -17,11 +17,13 @@ check_test(
         );
 
         $tester->check_completions('test-plugin ^',
-            [qw/foo bar baz/]);
+            [qw/foo bar baz/], 'test all completions');
     },
     {
-        ok => 1,
+        ok   => 1,
+        name => 'test all completions',
     },
+    'test cursor after blank character',
 );
 
 check_test(
@@ -44,7 +46,7 @@ check_test(
             plugin => 'Bash::Completion::Plugins::TestPlugin',
         );
 
-        $tester->check_completions('test-plugin ^f',
+        $tester->check_completions('test-plugin f^',
             [qw/foo/]);
     },
     {
