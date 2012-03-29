@@ -108,4 +108,6 @@ __END__
 
 =head1 SEE ALSO
 
+L<Bash::Completion>
+
 =cut
