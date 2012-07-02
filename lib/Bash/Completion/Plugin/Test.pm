@@ -39,7 +39,8 @@ sub check_completions {
 
     my @got_completions = $req->candidates;
 
-    is_deeply \@got_completions, $expected_completions, $name;
+    is_deeply [ sort @got_completions ], [ sort @$expected_completions ],
+        $name;
 }
 
 sub _cursor_character {
