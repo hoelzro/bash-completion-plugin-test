@@ -89,10 +89,17 @@ sub _create_plugin {
 sub _load_plugin {
     my ( $self, $plugin_class ) = @_;
 
-    $plugin_class =~ s{::}{/}g;
-    $plugin_class .= '.pm';\
+    my $plugin_path = $plugin_class;
 
-    require $plugin_class;
+    $plugin_path =~ s{::}{/}g;
+    $plugin_path .= '.pm';
+
+    my $ok = eval {
+        require $plugin_path;
+    };
+    unless($ok) {
+        croak "Could not load plugin '$plugin_class': $@";
+    }
 }
 
 1;
