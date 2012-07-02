@@ -98,13 +98,36 @@ sub _load_plugin {
 
 __END__
 
-# ABSTRACT:  Module for testing Bash::Completion plugins
+# ABSTRACT: Module for testing Bash::Completion plugins
 
 =head1 SYNOPSIS
 
+  my $tester = Bash::Completion::Plugin::Test->new(
+    plugin => $PLUGIN_NAME,
+  );
+
+  $test->check_completions('my-command ^', \@expected_completeions,
+    $opt_name);
+
 =head1 DESCRIPTION
 
-=head1 FUNCTIONS
+L<Bash::Completion::Plugin::Test> is a module for testing
+L<Bash::Completion> plugins.
+
+=head1 METHODS
+
+=head2 Bash::Completion::Plugin::Test->new(%params)
+
+Creates a new tester object.  C<%params> is a hash of named parameters;
+currently, the only supported one is C<plugin>, which is the name of the
+plugin to test, and is required.
+
+=head2 $tester->check_completions($command, \@expected, $name)
+
+Runs the current completion plugin against C<$command>, and verifies
+that the results it returns are the same as those in C<@expected>.
+The order of the items in C<@expected> does not matter.  C<$name> is
+an optional name for the test.
 
 =head1 SEE ALSO
 
