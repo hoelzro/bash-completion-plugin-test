@@ -309,7 +309,7 @@ check_test(
             plugin => 'Bash::Completion::Plugins::TestPluginNoDups',
         );
 
-        $tester->check_completions('test-plugin f^ bar',
+        $tester->check_completions('test-plugin-nodup f^ bar',
             [qw/foo/]);
     },
     {
@@ -323,7 +323,7 @@ check_test(
             plugin => 'Bash::Completion::Plugins::TestPluginNoDups',
         );
 
-        $tester->check_completions('test-plugin f^ bar',
+        $tester->check_completions('test-plugin-nodup f^ bar',
             [qw/bar baz/]);
     },
     {
@@ -337,7 +337,7 @@ check_test(
             plugin => 'Bash::Completion::Plugins::TestPluginNoDups',
         );
 
-        $tester->check_completions('test-plugin b^ bar',
+        $tester->check_completions('test-plugin-nodup b^ bar',
             [qw/bar baz/]);
     },
     {
@@ -351,7 +351,7 @@ check_test(
             plugin => 'Bash::Completion::Plugins::TestPluginNoDups',
         );
 
-        $tester->check_completions('test-plugin b^ bar',
+        $tester->check_completions('test-plugin-nodup b^ bar',
             [qw/baz/]);
     },
     {
@@ -365,7 +365,7 @@ check_test(
             plugin => 'Bash::Completion::Plugins::TestPluginNoDups',
         );
 
-        $tester->check_completions('test-plugin ^ bar',
+        $tester->check_completions('test-plugin-nodup ^ bar',
             [qw/foo baz/]);
     },
     {
@@ -379,7 +379,7 @@ check_test(
             plugin => 'Bash::Completion::Plugins::TestPluginNoDups',
         );
 
-        $tester->check_completions('test-plugin ^ bar',
+        $tester->check_completions('test-plugin-nodup ^ bar',
             [qw/foo bar baz/]);
     },
     {
