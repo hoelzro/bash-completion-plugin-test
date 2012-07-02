@@ -3,7 +3,7 @@ use warnings;
 use lib 't/lib';
 
 use Test::Tester;
-use Bash::Completion::Plugin::Test;
+use Bash::Completion::Plugins::Test;
 use Test::Exception;
 use Test::More;
 
