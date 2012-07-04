@@ -5,6 +5,7 @@ use warnings;
 use parent 'Bash::Completion::Plugin';
 
 use Bash::Completion::Utils qw(prefix_match);
+use Text::ParseWords qw(shellwords);
 
 my @OPTIONS = qw{foo bar baz};
 
@@ -17,10 +18,12 @@ sub complete {
 
     my %remaining = map { $_ => 1 } @OPTIONS;
 
-    foreach my $arg ($r->args) {
-        next if $arg eq $r->word;
+    my @words = shellwords($r->line);
 
-        delete $remaining{$arg};
+    foreach my $word (@words) {
+        next if $word eq $r->word;
+
+        delete $remaining{$word};
     }
 
     $r->candidates(prefix_match($r->word, keys %remaining));
