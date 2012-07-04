@@ -387,4 +387,6 @@ check_test(
     }
 );
 
+# XXX test when the cursor is in the middle of the word
+
 done_testing;
