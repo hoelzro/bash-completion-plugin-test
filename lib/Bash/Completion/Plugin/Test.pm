@@ -135,7 +135,9 @@ plugin to test, and is required.
 Runs the current completion plugin against C<$command>, and verifies
 that the results it returns are the same as those in C<@expected>.
 The order of the items in C<@expected> does not matter.  C<$name> is
-an optional name for the test.
+an optional name for the test. The carat character '^' must be present
+in C<$command>; it is removed and represents the location of the cursor
+when completion occurs.
 
 =head1 SEE ALSO
 
